@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %} Change Control {% endblock %}
+
+{% block content %}
+    <h1>Change Sets</h1>
+    <ul>
+        {% for change_set in change_sets %}
+        <li>{{ change_set.reference }} ({{ change_set.status }})</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="myfile">
+    <input type="file" name="myfile2">
+    <button type="submit">Upload</button>
+  </form>
+
+  <table>
+  {% if uploaded_file_url %}
+  <tr>
+    <td>{{ uploaded_file_url }}</td>
+    <td><a class="btn btn-primary" role="button" href="{{ uploaded_file_url }}"
+       download="{{ uploaded_file_url }}">
+      Download
+    </a></td>
+
+  </tr>
+  {% endif %}
+  {% if uploaded_file_url2 %}
+    <tr>
+    <td>{{ uploaded_file_url2 }}</td>
+    <td><a class="btn btn-primary" role="button" href="{{ uploaded_file_url2 }}"
+       download="{{ uploaded_file_url2 }}">
+      Download
+    </a></td>
+
+
+  </tr>
+  {% endif %}
+  </table>
+
+
+
+
+{% endblock %}
